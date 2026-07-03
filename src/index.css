@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 200 70% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 200 70% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 70% 10%;
+    
+    --primary: 198 100% 28%;  /* KMIT Blue */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 28 100% 50%;  /* KMIT Orange */
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 200 20% 96%;
+    --muted-foreground: 200 20% 40%;
+    
+    --accent: 198 100% 28%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 198 100% 28%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 200 50% 10%;
+    --foreground: 0 0% 98%;
+    
+    --card: 200 50% 10%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 200 50% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 198 100% 28%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 28 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 200 50% 15%;
+    --muted-foreground: 200 20% 65%;
+    
+    --accent: 198 100% 28%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 200 50% 15%;
+    --input: 200 50% 15%;
+    --ring: 198 100% 28%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Institutional Card Style */
+.card {
+  @apply rounded-md border bg-card text-card-foreground shadow-sm transition-all duration-300;
+  box-shadow: 0 2px 4px rgba(0, 108, 142, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 108, 142, 0.2);
+}
+
+/* Professional Button Styles */
+.btn {
+  @apply rounded-md px-4 py-2 font-medium transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:brightness-110;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:brightness-110;
+}
+
+/* Academic Input Style */
+.input {
+  @apply rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background transition-colors;
+  @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:border-primary;
+}
+
+/* Institutional Header */
+.institutional-header {
+  @apply bg-primary text-primary-foreground py-2 px-4 text-sm font-medium text-center;
+}
+
+/* Navigation Link */
+.nav-link {
+  @apply text-foreground/80 hover:text-primary transition-colors duration-200 relative;
+  @apply after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary;
+  @apply hover:after:w-full after:transition-all after:duration-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/30;
+}
+
+/* Institutional Banner */
+.banner {
+  @apply relative overflow-hidden bg-primary text-primary-foreground;
+  background-image: linear-gradient(135deg, rgba(0, 108, 142, 0.95), rgba(0, 108, 142, 0.8));
+}
+
+/* Academic Section */
+.academic-section {
+  @apply p-6 rounded-lg border border-border bg-card;
+  box-shadow: 0 2px 4px rgba(0, 108, 142, 0.05);
+}
+
+/* Institutional Footer */
+.institutional-footer {
+  @apply bg-primary text-primary-foreground;
+  background-image: linear-gradient(135deg, rgba(0, 108, 142, 1), rgba(0, 108, 142, 0.9));
+}
+
+/* Modern Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth Transitions */
+.smooth-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Floating elements */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Glowing effect */
+.glow {
+  transition: all 0.3s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 0 15px rgba(66, 153, 225, 0.6);
+}
+
+.dark .glow:hover {
+  box-shadow: 0 0 15px rgba(99, 179, 237, 0.6);
+}
